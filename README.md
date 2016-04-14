@@ -5,12 +5,12 @@ For this you will need Visual Studio 2013 or 2015 Community (or higher), and a M
 
 # Building it
 First, open Visual Studio (I'm using Visual Studio 2015), and create a new ASP.NET 4.6.1 web application. Any version of .NET that's 4.5.0 and up will work for this, as we're not using any functionality specific to 4.6.1. 
-![Create Project](http://i.imgur.com/aYUIQPv.png, "Create Project")
+![Create Project](http://i.imgur.com/aYUIQPv.png?2, "Create Project")
 
 I've named the project MariaCodeFirst, as I am using a MariaDB instance on AWS while testing this.
-![Project options](http://i.imgur.com/aIkPrwk.png, "Project options")
+![Project options](http://i.imgur.com/aIkPrwk.png?3, "Project options")
 
 Visual Studio will now create your project and solution. Once everything has been created, we'll add the NuGet packages you'll need. Right-click on the web app project, and select "Manage NuGet Packages..."
-![NuGet](http://i.imgur.com/x99V9Nr.png?1, "Manage NuGet Packages")
+![NuGet](http://i.imgur.com/x99V9Nr.png?2, "Manage NuGet Packages")
 
 Once NuGet has opened, you can update any packages that need to be updated. The default web app template is usually a few versions behind on most packages.
