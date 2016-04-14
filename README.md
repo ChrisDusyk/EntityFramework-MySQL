@@ -14,3 +14,10 @@ Visual Studio will now create your project and solution. Once everything has bee
 ![NuGet](http://i.imgur.com/x99V9Nr.png?2, "Manage NuGet Packages")
 
 Once NuGet has opened, you can update any packages that need to be updated. The default web app template is usually a few versions behind on most packages.
+
+After updating the default packages, it's time to add the Entity Framework and MySql.Data packages we need. In NuGet, add the following packages to your project:
+
+![Entity Framework](http://i.imgur.com/1it75QQ.png?1, "Entity Framework")
+![MySql.Data](http://i.imgur.com/6Jc3Dot.png?1, "MySql.Data")
+
+Once you've added the packages, build your project again to download the DLLs from NuGet.
