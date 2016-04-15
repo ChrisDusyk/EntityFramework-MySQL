@@ -4,8 +4,7 @@ namespace MariaCodeFirst.Migrations
 	using System.Data.Entity;
 	using System.Data.Entity.Migrations;
 	using System.Data.Entity.Migrations.History;
-
-	internal sealed class Configuration : DbMigrationsConfiguration<MariaCodeFirst.Models.Entities.MariaContext>
+	internal sealed class Configuration : DbMigrationsConfiguration<MariaCodeFirst.Models.Entities.MariaDBContext>
 	{
 		public Configuration()
 		{
@@ -16,11 +15,11 @@ namespace MariaCodeFirst.Migrations
 			SetHistoryContextFactory("MySql.Data.MySqlClient", (conn, schema) => new MySqlHistoryContext(conn, schema));
 		}
 
-		protected override void Seed(Models.Entities.MariaContext context)
+		protected override void Seed(MariaCodeFirst.Models.Entities.MariaDBContext context)
 		{
 			//  This method will be called after migrating to the latest version.
 
-			//  You can use the DbSet<T>.AddOrUpdate() helper extension method
+			//  You can use the DbSet<T>.AddOrUpdate() helper extension method 
 			//  to avoid creating duplicate seed data. E.g.
 			//
 			//    context.People.AddOrUpdate(

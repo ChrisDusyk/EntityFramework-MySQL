@@ -1,15 +1,13 @@
 namespace MariaCodeFirst.Models.Entities
 {
-	using System;
 	using System.Data.Entity;
-	using System.ComponentModel.DataAnnotations.Schema;
-	using System.Linq;
 
+	[DbConfigurationType(typeof(MySql.Data.Entity.MySqlEFConfiguration))]
 	public partial class MariaDBContext : DbContext
 	{
-		public MariaDBContext()
-			: base("name=MariaDBContext")
+		public MariaDBContext() : base("name=MariaDBContext")
 		{
+			Database.SetInitializer<MariaDBContext>(new MariaDbInitializer());
 		}
 
 		public virtual DbSet<Customer> Customers { get; set; }

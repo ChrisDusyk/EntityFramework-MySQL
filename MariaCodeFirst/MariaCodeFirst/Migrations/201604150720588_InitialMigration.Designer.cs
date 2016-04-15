@@ -13,7 +13,7 @@ namespace MariaCodeFirst.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201604131757164_InitialMigration"; }
+            get { return "201604150720588_InitialMigration"; }
         }
         
         string IMigrationMetadata.Source

@@ -76,4 +76,101 @@ Choose the Customers table in the list and click "Finish":
 
 ![Finish Context](http://i.imgur.com/zPwI7e9.png?1 "Finish Context") 
 
-[GitHub](https://github.com/LordCheese/EntityFramework-MySQL)
+The NuGet installs should have added everything you need to the web.config, but let's confirm that to be on the safe side. Go to the web.config file and look for the <entityFramework> and <system.data> sections. They should look something like this:
+
+![Web.config](http://i.imgur.com/PMrYH3d.png?1 "Web.config") 
+
+## Setting up the context classes
+Now that the context has been created, there are a few more steps to make it all work properly for code-first. First we'll create the DbInitializer. Right-click on the Entities folder and go to Add > Class:
+
+![DbInitializer class](http://i.imgur.com/pDB2Esr.png?1 "DbInitializer class") 
+
+Enter the class name and click "Add":
+
+![Create class](http://i.imgur.com/PCyp2HP.png?1 "Create class") 
+
+In the new class, enter the following code:
+
+![DbInitializer code](http://i.imgur.com/wBjxlRI.png?1 "DbInitializer code") 
+
+It derives from the context, running through an Entity Framework partial that will tell the migration to create the database if it doesn't already exist. We then implement the Seed method, which can be used to seed the database with data when running a migration.
+
+Back in the context class, add the following line above the class declaration:
+
+    [DbConfigurationType(typeof(MySql.Data.Entity.MySqlEFConfiguration))]
+
+And the following line to the MariaDBContext constructor:
+
+    Database.SetInitializer<MariaDBContext>(new MariaDbInitializer());
+
+So that it looks like this:
+
+![Context class done](http://i.imgur.com/aJ1OImx.png?1 "Context class done") 
+
+## Code-first migrations
+Next we will need to enable code-first migrations. To do this, open the Package Manger Console and type in: 
+
+    Enable-Migrations 
+If everything has been done correctly so far, it will respond with:
+
+    Checking if the context targets an existing database...
+    Code First Migrations enabled for project MariaCodeFirst.
+
+This will create the code-first Configuration.cs file and a Migrations folder:
+
+![Migrations folder](http://i.imgur.com/JAMI8bE.png?1 "Migrations folder") 
+
+Open the Configuration.cs file and add the following class to the bottom of the namespace, below the Configuration class:
+
+    public class MySqlHistoryContext : HistoryContext
+    {
+        public MySqlHistoryContext(DbConnection connection, string defaultSchema) : base(connection, defaultSchema)
+        {
+        }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<HistoryRow>().Property(h => h.MigrationId)
+                .HasMaxLength(100)
+                .IsRequired();
+
+            modelBuilder.Entity<HistoryRow>().Property(h => h.ContextKey)
+                .HasMaxLength(200)
+                .IsRequired();
+        }
+    }
+
+![History class](http://i.imgur.com/LUjw3Ca.png?1 "History class") 
+
+And finally, add the following lines to the Configuration constructor:
+
+    SetSqlGenerator("MySql.Data.MySqlClient", new MySql.Data.Entity.MySqlMigrationSqlGenerator());
+
+    SetHistoryContextFactory("MySql.Data.MySqlClient", (conn, schema) => new MySqlHistoryContext(conn, schema));
+
+![Config constructor](http://i.imgur.com/NWdIpMG.png?1 "Config constructor") 
+
+Finally, it's time to create and run the actual migration (in this case, just to ensure we're connected to the database and that it will work) Open the Package Manager Console again and type:
+
+    Add-Migration 'InitialMigration'
+
+You will see the following message when it's done scaffolding the migration:
+
+    Scaffolding migration 'InitialMigration'.
+
+Next, to update the database, type in the following command to apply the migration to the database:
+
+    Update-Database
+
+It will respond with:
+
+    Specify the '-Verbose' flag to view the SQL statements being applied to the target database.
+    Applying explicit migrations: [201604150720588_InitialMigration].
+    Applying explicit migration: 201604150720588_InitialMigration.
+    Running Seed method.
+
+If you check the database now, the Customers table will exist in the database, as well as the Entity Framework __Migrations table.
+
+I hope this helps you get started with Entity Framework code-first with a MySQL-based database engine. I had a lot of issues with this initially, and it turned out to be a lot easier than I first thought. Hopefully this saves you a couple headaches!

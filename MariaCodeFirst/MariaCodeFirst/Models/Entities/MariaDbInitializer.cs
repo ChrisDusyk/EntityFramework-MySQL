@@ -2,9 +2,9 @@
 
 namespace MariaCodeFirst.Models.Entities
 {
-	public class MariaDbInitializer : CreateDatabaseIfNotExists<MariaContext>
+	public class MariaDbInitializer : CreateDatabaseIfNotExists<MariaDBContext>
 	{
-		protected override void Seed(MariaContext context)
+		protected override void Seed(MariaDBContext context)
 		{
 			base.Seed(context);
 		}

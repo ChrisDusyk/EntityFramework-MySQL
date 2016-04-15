@@ -141,12 +141,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201604131757164_InitialMigration.cs" />
-    <Compile Include="Migrations\201604131757164_InitialMigration.Designer.cs">
-      <DependentUpon>201604131757164_InitialMigration.cs</DependentUpon>
+    <Compile Include="Migrations\201604150720588_InitialMigration.cs" />
+    <Compile Include="Migrations\201604150720588_InitialMigration.Designer.cs">
+      <DependentUpon>201604150720588_InitialMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Entities\MariaContext.cs" />
+    <Compile Include="Models\Entities\Customer.cs" />
+    <Compile Include="Models\Entities\MariaDBContext.cs" />
     <Compile Include="Models\Entities\MariaDbInitializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -207,8 +208,8 @@
     <Content Include="Scripts\jquery-2.2.3.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201604131757164_InitialMigration.resx">
-      <DependentUpon>201604131757164_InitialMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201604150720588_InitialMigration.resx">
+      <DependentUpon>201604150720588_InitialMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
