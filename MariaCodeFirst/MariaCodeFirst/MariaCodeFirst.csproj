@@ -145,10 +145,17 @@
     <Compile Include="Migrations\201604150720588_InitialMigration.Designer.cs">
       <DependentUpon>201604150720588_InitialMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201604172301385_OrdersAndProducts.cs" />
+    <Compile Include="Migrations\201604172301385_OrdersAndProducts.Designer.cs">
+      <DependentUpon>201604172301385_OrdersAndProducts.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Entities\Customer.cs" />
     <Compile Include="Models\Entities\MariaDBContext.cs" />
     <Compile Include="Models\Entities\MariaDbInitializer.cs" />
+    <Compile Include="Models\Entities\Order.cs" />
+    <Compile Include="Models\Entities\OrderProduct.cs" />
+    <Compile Include="Models\Entities\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -210,6 +217,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201604150720588_InitialMigration.resx">
       <DependentUpon>201604150720588_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604172301385_OrdersAndProducts.resx">
+      <DependentUpon>201604172301385_OrdersAndProducts.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
