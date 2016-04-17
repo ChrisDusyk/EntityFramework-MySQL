@@ -78,6 +78,10 @@
 	</system.data>
 	<connectionStrings>
 		<!-- Add your connection string here. MySQL, Amazon Aurora, and MariaDB will all work. -->
-		<add name="MariaContext" connectionString="server=localhost;user id=app_user;pass=6lu818qnytzDDmWSTaJE" providerName="MySql.Data.MySqlClient" />
+<<<<<<< Updated upstream
+		<add name="MariaDBContext" connectionString="server=;user id=app_user;password=;database=TestDB" providerName="MySql.Data.MySqlClient" />
+=======
+		<add name="MariaContext" connectionString="server=localhost;user=app_user;pass=6lu818qnytzDDmWSTaJE" providerName="MySql.Data.MySqlClient" />
+>>>>>>> Stashed changes
 	</connectionStrings>
 </configuration>
