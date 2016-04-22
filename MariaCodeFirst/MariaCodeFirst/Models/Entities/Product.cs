@@ -7,7 +7,7 @@ using System.Web;
 
 namespace MariaCodeFirst.Models.Entities
 {
-	[Table("Products")]
+	[Table("TestDB.Products")]
 	public class Product
 	{
 		public int ProductId { get; set; }

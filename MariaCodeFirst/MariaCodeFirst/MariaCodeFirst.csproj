@@ -145,9 +145,9 @@
     <Compile Include="Migrations\201604150720588_InitialMigration.Designer.cs">
       <DependentUpon>201604150720588_InitialMigration.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201604172301385_OrdersAndProducts.cs" />
-    <Compile Include="Migrations\201604172301385_OrdersAndProducts.Designer.cs">
-      <DependentUpon>201604172301385_OrdersAndProducts.cs</DependentUpon>
+    <Compile Include="Migrations\201604222118290_OrdersAndProducts.cs" />
+    <Compile Include="Migrations\201604222118290_OrdersAndProducts.Designer.cs">
+      <DependentUpon>201604222118290_OrdersAndProducts.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Entities\Customer.cs" />
@@ -218,8 +218,8 @@
     <EmbeddedResource Include="Migrations\201604150720588_InitialMigration.resx">
       <DependentUpon>201604150720588_InitialMigration.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201604172301385_OrdersAndProducts.resx">
-      <DependentUpon>201604172301385_OrdersAndProducts.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201604222118290_OrdersAndProducts.resx">
+      <DependentUpon>201604222118290_OrdersAndProducts.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

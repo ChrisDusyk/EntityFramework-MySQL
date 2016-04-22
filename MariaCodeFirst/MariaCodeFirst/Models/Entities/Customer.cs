@@ -6,7 +6,7 @@ namespace MariaCodeFirst.Models.Entities
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("Customers")]
+    [Table("TestDB.Customers")]
     public partial class Customer
     {
         public int CustomerId { get; set; }
