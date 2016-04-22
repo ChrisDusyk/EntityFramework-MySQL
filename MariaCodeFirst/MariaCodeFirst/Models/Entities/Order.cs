@@ -14,6 +14,8 @@ namespace MariaCodeFirst.Models.Entities
 
 		[Required]
 		public int CustomerId { get; set; }
+
+		[ForeignKey("CustomerId")]
 		public virtual Customer Customer { get; set; }
 
 		public DateTime OrderDate { get; set; }

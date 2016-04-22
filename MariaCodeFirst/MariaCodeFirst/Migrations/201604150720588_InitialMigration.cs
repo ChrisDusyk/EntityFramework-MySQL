@@ -8,7 +8,7 @@ namespace MariaCodeFirst.Migrations
         public override void Up()
         {
             CreateTable(
-                "TestDB.Customers",
+                "Customers",
                 c => new
                     {
                         CustomerId = c.Int(nullable: false, identity: true),
@@ -21,7 +21,7 @@ namespace MariaCodeFirst.Migrations
         
         public override void Down()
         {
-            DropTable("TestDB.Customers");
+            DropTable("Customers");
         }
     }
 }

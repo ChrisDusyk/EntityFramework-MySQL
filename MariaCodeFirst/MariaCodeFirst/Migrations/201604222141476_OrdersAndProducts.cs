@@ -7,9 +7,8 @@ namespace MariaCodeFirst.Migrations
     {
         public override void Up()
         {
-            MoveTable(name: "TestDB.Customers", newSchema: "dbo");
             CreateTable(
-                "dbo.OrderProducts",
+                "OrderProducts",
                 c => new
                     {
                         OrderProductId = c.Int(nullable: false, identity: true),
@@ -18,13 +17,13 @@ namespace MariaCodeFirst.Migrations
                         CreatedDate = c.DateTime(nullable: false, precision: 0),
                     })
                 .PrimaryKey(t => t.OrderProductId)
-                .ForeignKey("dbo.Orders", t => t.OrderId, cascadeDelete: true)
-                .ForeignKey("dbo.Products", t => t.ProductId, cascadeDelete: true)
+                .ForeignKey("Orders", t => t.OrderId, cascadeDelete: true)
+                .ForeignKey("Products", t => t.ProductId, cascadeDelete: true)
                 .Index(t => t.OrderId)
                 .Index(t => t.ProductId);
             
             CreateTable(
-                "dbo.Orders",
+                "Orders",
                 c => new
                     {
                         OrderId = c.Int(nullable: false, identity: true),
@@ -32,11 +31,11 @@ namespace MariaCodeFirst.Migrations
                         OrderDate = c.DateTime(nullable: false, precision: 0),
                     })
                 .PrimaryKey(t => t.OrderId)
-                .ForeignKey("dbo.Customers", t => t.CustomerId, cascadeDelete: true)
+                .ForeignKey("Customers", t => t.CustomerId, cascadeDelete: true)
                 .Index(t => t.CustomerId);
             
             CreateTable(
-                "dbo.Products",
+                "Products",
                 c => new
                     {
                         ProductId = c.Int(nullable: false, identity: true),
@@ -50,16 +49,16 @@ namespace MariaCodeFirst.Migrations
         
         public override void Down()
         {
-            DropForeignKey("dbo.OrderProducts", "ProductId", "dbo.Products");
-            DropForeignKey("dbo.OrderProducts", "OrderId", "dbo.Orders");
-            DropForeignKey("dbo.Orders", "CustomerId", "dbo.Customers");
-            DropIndex("dbo.Orders", new[] { "CustomerId" });
-            DropIndex("dbo.OrderProducts", new[] { "ProductId" });
-            DropIndex("dbo.OrderProducts", new[] { "OrderId" });
-            DropTable("dbo.Products");
-            DropTable("dbo.Orders");
-            DropTable("dbo.OrderProducts");
-            MoveTable(name: "dbo.Customers", newSchema: "TestDB");
+            DropForeignKey("OrderProducts", "ProductId", "Products");
+            DropForeignKey("OrderProducts", "OrderId", "Orders");
+            DropForeignKey("Orders", "CustomerId", "Customers");
+            DropIndex("Orders", new[] { "CustomerId" });
+            DropIndex("OrderProducts", new[] { "ProductId" });
+            DropIndex("OrderProducts", new[] { "OrderId" });
+            DropTable("Products");
+            DropTable("Orders");
+            DropTable("OrderProducts");
+            MoveTable(name: "Customers", newSchema: "TestDB");
         }
     }
 }

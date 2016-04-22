@@ -12,9 +12,13 @@ namespace MariaCodeFirst.Models.Entities
 		public int OrderProductId { get; set; }
 
 		public int OrderId { get; set; }
+
+		[ForeignKey("OrderId")]
 		public virtual Order Order { get; set; }
 
 		public int ProductId { get; set; }
+
+		[ForeignKey("ProductId")]
 		public virtual Product Product { get; set; }
 
 		public DateTime CreatedDate { get; set; }
