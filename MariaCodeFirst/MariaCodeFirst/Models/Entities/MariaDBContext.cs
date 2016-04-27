@@ -12,6 +12,12 @@ namespace MariaCodeFirst.Models.Entities
 
 		public virtual DbSet<Customer> Customers { get; set; }
 
+		public virtual DbSet<Order> Orders { get; set; }
+
+		public virtual DbSet<Product> Products { get; set; }
+
+		public virtual DbSet<OrderProduct> OrderProducts { get; set; }
+
 		protected override void OnModelCreating(DbModelBuilder modelBuilder)
 		{
 			modelBuilder.Entity<Customer>()
