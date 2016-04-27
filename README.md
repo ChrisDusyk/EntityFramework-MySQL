@@ -1,4 +1,8 @@
-I recently did a project involving ASP.NET 4.6.1, Entity Framework 6.1.3, and Amazon Aurora. Aurora is Amazon's distributed database engine, designed to take advantage of the processing available in a large cloud datacentre. I initially found it very challenging to connect Entity Framework code-first to MySQL, however I've found info in a few places and can put together a better tutorial and sample here. Once I figured it all out, it turned out to be quite easy. Certainly not quite as easy as if I were using MS SQL Server, but that's not always an option. Many of the MySQL-variants are much cheaper to run than MS SQL Server, especially for a smaller company. This tutorial can also be found on my [blog](http://dev-blog.dusyk.ca/entity-framework-and-mysql/). 
+I recently did a project involving ASP.NET 4.6.1, Entity Framework 6.1.3, and Amazon Aurora. Aurora is Amazon's distributed database engine, designed to take advantage of the processing available in a large cloud datacentre. I initially found it very challenging to connect Entity Framework code-first to MySQL, however I've found info in a few places and can put together a better tutorial and sample here. Once I figured it all out, it turned out to be quite easy. Certainly not quite as easy as if I were using MS SQL Server, but that's not always an option. Many of the MySQL-variants are much cheaper to run than MS SQL Server, especially for a smaller company. 
+
+The tutorials can also be found on my blog: 
+- [Part 1 - Setting up your project and migrations](http://dev-blog.dusyk.ca/entity-framework-and-mysql/) 
+- [Part 2 - Creating and running a code-first migration](http://dev-blog.dusyk.ca/code-first-migration-to-mysql/) 
 
 ## What you need
 For this you will need Visual Studio 2013 or 2015 Community (or higher), and a MySQL-based database. I used a free-tier MariaDB instance on AWS, however anything that is MySQL or a fork of it will work fine. I also recommend picking up the [MySQL For Visual Studio ](http://dev.mysql.com/downloads/windows/visualstudio/) plugin for the extra tooling, though it's not required.
@@ -31,4 +35,4 @@ After updating the default packages, it's time to add the Entity Framework and M
 Once you've added the packages, build your project again to download the DLLs from NuGet.
 
 ## Next steps
-To continue following this tutorial, please visit the [wiki](https://github.com/LordCheese/EntityFramework-MySQL/wiki) or my [blog](http://dev-blog.dusyk.ca/entity-framework-and-mysql/), otherwise the README will be way too long!
+To continue following this tutorial, please visit the [wiki](https://github.com/LordCheese/EntityFramework-MySQL/wiki) or my [blog](http://dev-blog.dusyk.ca/), otherwise the README will be way too long!
