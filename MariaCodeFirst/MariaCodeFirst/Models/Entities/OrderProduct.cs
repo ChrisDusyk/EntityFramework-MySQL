@@ -17,10 +17,3 @@ namespace MariaCodeFirst.Models.Entities
 		public DateTime CreatedDate { get; set; }
 	}
 }
-
-		[ForeignKey("ProductId")]
-		public virtual Product Product { get; set; }
-
-		public DateTime CreatedDate { get; set; }
-	}
-}

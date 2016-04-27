@@ -16,8 +16,3 @@ namespace MariaCodeFirst.Models.Entities
 		public DateTime CreatedDate { get; set; }
 	}
 }
-		public virtual Customer Customer { get; set; }
-
-		public DateTime OrderDate { get; set; }
-	}
-}

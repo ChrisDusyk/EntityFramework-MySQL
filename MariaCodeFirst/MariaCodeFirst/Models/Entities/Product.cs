@@ -22,4 +22,3 @@ namespace MariaCodeFirst.Models.Entities
 		public DateTime LastModifiedDate { get; set; }
 	}
 }
-}
